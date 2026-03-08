@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "build": "doc-kit generate -t web -t orama-db -i \"pages/**/*.md\" -o out"
+  },
+  "devDependencies": {
+    "@node-core/doc-kit": "^1.0.1"
+  }
+}
