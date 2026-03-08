@@ -43,7 +43,7 @@ There are multiple methods available to generate WebAssembly binary files includ
 
 Once you have a WebAssembly module, you can use the Node.js `WebAssembly` object to instantiate it.
 
-```js
+```cjs
 // Assume add.wasm file exists that contains a single function adding 2 provided arguments
 const fs = require('node:fs');
 

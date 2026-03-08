@@ -267,7 +267,7 @@ function generateSnapshotPath(testFilePath) {
 
 The example below demonstrates snapshot testing with [testing library](https://testing-library.com/) for UI components; note the two different ways of accessing `assert.snapshot`):
 
-```js
+```jsx
 import { describe, it } from 'node:test';
 
 import { prettyDOM } from '@testing-library/dom';
@@ -381,7 +381,7 @@ function globalUIBeforeEach() {
 
 You can have 2 different levels of UI tests: a unit-like (wherein externals & dependencies are mocked) and a more end-to-end (where only externals like IndexedDb are mocked but the rest of the chain is real). The former is generally the purer option, and the latter is generally deferred to a fully end-to-end automated usability test via something like [Playwright](https://playwright.dev/) or [Puppeteer](https://pptr.dev/). Below is an example of the former.
 
-```js
+```jsx
 import { before, describe, mock, it } from 'node:test';
 
 import { screen } from '@testing-library/dom';
