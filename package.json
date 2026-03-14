@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "doc-kit generate -t web -t orama-db -i \"pages/**/*.md\" -o out",
+    "build": "doc-kit generate -t web -t orama-db -i \"pages/**/*\" -o out",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "format": "prettier --write .",
@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@node-core/doc-kit": "^1.0.1",
+    "@node-core/doc-kit": "nodejs/doc-kit#feat/fs-improvements",
     "@node-core/remark-lint": "^1.2.1",
     "eslint": "^10.0.3",
     "eslint-plugin-mdx": "^3.7.0",

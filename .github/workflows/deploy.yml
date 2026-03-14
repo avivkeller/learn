@@ -21,10 +21,10 @@ jobs:
         uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
         with:
           node-version: lts/*
-          cache: 'pnpm'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: pnpm ci
+        run: npm ci
 
       - name: Build
         run: mkdir out && node --run build
