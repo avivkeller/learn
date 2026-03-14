@@ -79,7 +79,7 @@ myPromise
 
 One of the great features of Promises is that they allow you to chain multiple asynchronous operations together. When you chain Promises, each `.then()` block waits for the previous one to complete before it runs.
 
-```js
+```cjs
 const { setTimeout: delay } = require('node:timers/promises');
 
 const promise = delay(1000).then(() => 'First task completed');
@@ -156,7 +156,7 @@ Node.js provides **Promise-based versions** of many of its core APIs, especially
 
 For example, the `fs` (file system) module has a Promise-based API under `fs.promises`:
 
-```js
+```cjs
 const fs = require('node:fs').promises;
 // Or, you can import the promisified version directly:
 // const fs = require('node:fs/promises');
@@ -183,7 +183,7 @@ JavaScript's `Promise` global provides several powerful methods that help manage
 
 This method accepts an array of Promises and returns a new Promise that resolves once all the Promises are fulfilled. If any Promise is rejected, `Promise.all()` will immediately reject. However, even if rejection occurs, the Promises continue to execute. When handling a large number of Promises, especially in batch processing, using this function can strain the system's memory.
 
-```js
+```cjs
 const { setTimeout: delay } = require('node:timers/promises');
 
 const fetchData1 = delay(1000).then(() => 'Data from API 1');
@@ -218,7 +218,7 @@ Unlike `Promise.all()`, `Promise.allSettled()` does not short-circuit on failure
 
 This method resolves or rejects as soon as the first Promise settles, whether it resolves or rejects. Regardless of which promise settles first, all promises are fully executed.
 
-```js
+```cjs
 const { setTimeout: delay } = require('node:timers/promises');
 
 const task1 = delay(2000).then(() => 'Task 1 done');
@@ -233,7 +233,7 @@ Promise.race([task1, task2]).then(result => {
 
 This method resolves as soon as one of the Promises resolves. If all promises are rejected, it will reject with an `AggregateError`.
 
-```js
+```cjs
 const { setTimeout: delay } = require('node:timers/promises');
 
 const api1 = delay(2000).then(() => 'API 1 success');

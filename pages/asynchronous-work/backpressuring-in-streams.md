@@ -650,7 +650,7 @@ However, when we want to use a [`Writable`][] directly, we must respect the
 - If the data chunk is too large, [`.write()`][] will return false (the limit
   is indicated by the variable, [`highWaterMark`][]).
 
-```js
+```mjs
 // This writable is invalid because of the async nature of JavaScript callbacks.
 // Without a return statement for each callback prior to the last,
 // there is a great chance multiple callbacks will be called.
