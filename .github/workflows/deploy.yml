@@ -24,7 +24,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm i # TODO(@avivkeller): This is a bug-fix for git deps
 
       - name: Build
         run: mkdir out && node --run build
