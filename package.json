@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "build": "doc-kit generate -t web -t orama-db -i \"pages/**/*\" -o out",
+    "prebuild": "node scripts/prepare-navigation.mjs",
+    "build": "doc-kit generate -t web -t orama-db --config-file doc-kit.config.mjs",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "format": "prettier --write .",
@@ -9,15 +10,18 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@node-core/doc-kit": "nodejs/doc-kit#feat/fs-improvements",
-    "@node-core/remark-lint": "^1.2.1",
-    "eslint": "^10.0.3",
+    "@node-core/doc-kit": "1.2.0",
+    "@node-core/remark-lint": "^1.3.0",
+    "eslint": "^10.1.0",
     "eslint-plugin-mdx": "^3.7.0",
     "globals": "^17.4.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
     "prettier": "^3.8.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.57.0"
+    "typescript-eslint": "^8.57.1"
+  },
+  "dependencies": {
+    "@node-core/ui-components": "^1.6.3"
   }
 }
