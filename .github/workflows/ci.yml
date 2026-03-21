@@ -49,7 +49,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm i # TODO(@avivkeller): This is a bug-fix for git deps
+        run: npm ci
 
       - name: Run quality checks
-        run: node --run lint:fix && node --run format:write
+        run: node --run lint:fix && node --run format
