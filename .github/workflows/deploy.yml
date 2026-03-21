@@ -24,10 +24,10 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm i # TODO(@avivkeller): This is a bug-fix for git deps
+        run: npm ci
 
       - name: Build
-        run: mkdir out && node --run build
+        run: mkdir out && npm run build
 
       - name: Upload static files as artifact
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
