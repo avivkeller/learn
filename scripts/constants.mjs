@@ -8,6 +8,7 @@ export const OUTPUT_FILE = join(
   'components',
   'config.json'
 );
+export const INDEX_FILE = join(PAGES_DIR, 'index.md');
 
 // Site navigation
 export const NAV_URL =

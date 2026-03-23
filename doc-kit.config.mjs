@@ -9,7 +9,7 @@ export default {
   },
   'jsx-ast': {
     pageURL: 'https://learn.nodejs.org{path}.html',
-    editURL: 'https://github.com/nodejs/learn/edit/main{path}.md',
+    editURL: 'https://github.com/nodejs/learn/edit/main/pages{path}.md',
   },
   web: {
     title: '',

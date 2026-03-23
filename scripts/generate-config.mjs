@@ -5,6 +5,7 @@ import {
   I18N_URL,
   NAV_URL,
   OUTPUT_FILE,
+  INDEX_FILE,
   PAGES_DIR,
 } from './constants.mjs';
 import config from '../doc-kit.config.mjs';
@@ -60,6 +61,15 @@ import { populate } from '@node-core/doc-kit/src/utils/configuration/templates.m
  * @returns {string} The heading text, or an empty string if none is found.
  */
 const extractTitle = content => content.match(/^#\s+(.+)$/m)?.[1]?.trim() ?? '';
+
+/**
+ * Extracts the ordered list of group slugs from index.md links.
+ * @param {string} content - Raw markdown of the index file.
+ * @returns {string[]} Ordered, deduplicated group slugs.
+ */
+const extractGroupOrder = content => [
+  ...new Set([...content.matchAll(/\]\(\/([\w-]+)\//g)].map(m => m[1])),
+];
 
 /**
  * Extracts author IDs from a `<!-- YAML authors: id1, id2 -->` block.
@@ -188,9 +198,12 @@ const parsePage = (file, content) => {
  * @returns {Promise<{ sideNav: SideNavGroup[], authors: Record<string, ResolvedAuthor[]> }>}
  */
 const buildPages = async authorsById => {
-  const files = await Array.fromAsync(
-    glob('**/*.md', { cwd: PAGES_DIR, exclude: ['index.md'] })
-  );
+  const [files, indexContent] = await Promise.all([
+    Array.fromAsync(glob('**/*.md', { cwd: PAGES_DIR, exclude: ['index.md'] })),
+    readFile(INDEX_FILE, 'utf-8'),
+  ]);
+
+  const groupOrder = extractGroupOrder(indexContent);
 
   const pages = await Promise.all(
     files.map(async file => {
@@ -198,10 +211,15 @@ const buildPages = async authorsById => {
       return parsePage(file, content);
     })
   );
-
   const groups = Map.groupBy(pages, p => p.group);
 
-  const sideNav = [...groups.entries()].map(([key, items]) => ({
+  // Sort entries by their position in index.md (unknown groups go to the end)
+  const sortedEntries = [...groups.entries()].sort(
+    (a, b) =>
+      (groupOrder.indexOf(a[0]) >>> 0) - (groupOrder.indexOf(b[0]) >>> 0)
+  );
+
+  const sideNav = sortedEntries.map(([key, items]) => ({
     groupName: slugToTitle(key),
     items: items.map(p => ({ label: p.label, link: p.pathname + '.html' })),
   }));

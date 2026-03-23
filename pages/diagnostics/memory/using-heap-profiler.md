@@ -97,7 +97,7 @@ heap allocations, see the example below:
 - https://developer.chrome.com/docs/devtools/memory-problems/memory-101/
 - https://developer.chrome.com/docs/devtools/memory-problems/allocation-profiler/
 
-[Using Heap Snapshot]: /learn/diagnostics/memory/using-heap-snapshot/
+[Using Heap Snapshot]: /diagnostics/memory/using-heap-snapshot/
 [@mmarchini/observe]: https://www.npmjs.com/package/@mmarchini/observe
 [`heap-profiler`]: https://www.npmjs.com/package/heap-profile
 [heap profiler tutorial 1]: /static/images/docs/guides/diagnostics/heap-profiler-tutorial-1.png

@@ -12,7 +12,7 @@ As a beginner, it's hard to get to a point where you are confident enough in you
 - [Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators)
 - [Data Types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
 - [Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
-- [Variables](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables#what_is_a_variable)
+- [Variables](https://developer.mozilla.org/en-US/docs/JavaScript/First_steps/Variables#what_is_a_variable)
 - [Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
 - [`this` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
 - [Arrow Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
@@ -21,7 +21,7 @@ As a beginner, it's hard to get to a point where you are confident enough in you
 - [Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 - [Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 - [Strict Mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
-- [ECMAScript 2015 (ES6) and beyond](/learn/getting-started/ecmascript-2015-es6-and-beyond)
+- [ECMAScript 2015 (ES6) and beyond](/getting-started/ecmascript-2015-es6-and-beyond)
 - [Asynchronous JavaScript](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Async_JS)
 
 With those concepts in mind, you are well on your road to become a proficient JavaScript developer, in both the browser and in Node.js.
@@ -30,7 +30,7 @@ With those concepts in mind, you are well on your road to become a proficient Ja
 
 The following concepts are also key to understand asynchronous programming, which is one of the fundamental parts of Node.js:
 
-- [Asynchronous programming and callbacks](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing)
+- [Asynchronous programming and callbacks](https://developer.mozilla.org/en-US/docs/JavaScript/Asynchronous/Introducing)
 - [Timers](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout)
 - [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
 - [Async and Await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)

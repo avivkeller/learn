@@ -102,15 +102,56 @@ const interval = setInterval(() => {
 
 If a function always takes the same amount of time, it's all fine:
 
-![setInterval working fine](/static/images/learn/javascript-timers/setinterval-ok.png)
+```
+0         1000        2000        3000
+|          |           |           |
+|          |           |           |
+|       [██████████]   |           |
+|       [exe script]   |           |
+|       [██████████]   |           |
+|          |  [██████████]         |
+|          |  [exe script]         |
+|          |  [██████████]         |
+|          |           |  [██████████]
+|          |           |  [exe script]
+|          |           |  [██████████]
+|__________|___________|___________|____
+```
 
 Maybe the function takes different execution times, depending on network conditions for example:
 
-![setInterval varying duration](/static/images/learn/javascript-timers/setinterval-varying-duration.png)
+```
+0         1000        2000        3000
+|          |           |           |
+|          |           |           |
+|       [██████████]   |           |
+|       [exe script]   |           |
+|       [██████████]   |           |
+|          |  [████████████████████]
+|          |  [  execute script    ]
+|          |  [████████████████████]
+|          |           |     [██████████]
+|          |           |     [exe script]
+|          |           |     [██████████]
+|__________|___________|___________|____
+```
 
 And maybe one long execution overlaps the next one:
 
-![setInterval overlapping](/static/images/learn/javascript-timers/setinterval-overlapping.png)
+```
+0         1000        2000        3000        4000
+|          |           |           |           |
+|     [████████████████████]       |           |
+|     [    execute script  ]       |           |
+|     [████████████████████]       |           |
+|          [███████████████████████████]       |
+|          [      execute script       ]       |
+|          [███████████████████████████]       |
+|          |           |           [██████████████]
+|          |           |           [execute script]
+|          |           |           [██████████████]
+|__________|___________|___________|___________|__
+```
 
 To avoid this, you can schedule a recursive setTimeout to be called when the callback function finishes:
 
@@ -126,7 +167,15 @@ setTimeout(myFunction, 1000);
 
 to achieve this scenario:
 
-![Recursive setTimeout](/static/images/learn/javascript-timers/recursive-settimeout.png)
+```
+0         1000         2000        3000
+|          |            |           |
+|     [█████████████]   |    [█████████████]
+|     [ exec script ]>──1s──<[ exec script ]
+|     [█████████████]   |    [█████████████]
+|          |            |           |
+|__________|____________|___________|__________
+```
 
 `setTimeout` and `setInterval` are available in Node.js, through the [Timers module](https://nodejs.org/api/timers.html).
 
