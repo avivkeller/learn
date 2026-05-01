@@ -22,6 +22,6 @@
     "typescript-eslint": "^8.57.1"
   },
   "dependencies": {
-    "@node-core/ui-components": "^1.6.3"
+    "@node-core/ui-components": "^1.7.0"
   }
 }
